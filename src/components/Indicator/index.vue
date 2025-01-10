@@ -36,8 +36,8 @@
     .title {
       .text {
         padding-left: calc((@indicatorTextPaddingLeft / @designWidth) * 100vw);
-        .px2font(15);
-        // font-family: Douyu;
+        .px2font(16);
+        font-family: PangMenZhengDao;
       }
       .deco {
         img {

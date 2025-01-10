@@ -55,7 +55,7 @@
       .px2font(30);
       text-align: center;
       line-height: calc((@screenHeaderHeight / @designHeight) * 100vh);
-      // font-family: Douyu;
+      font-family: PangMenZhengDao;
       z-index: 1;
     }
     .screen-left {
