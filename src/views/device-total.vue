@@ -9,20 +9,37 @@
   import { ref, onMounted, onUnmounted } from 'vue';
   import Indicator from '../components/Indicator/index.vue';
   import echarts from '../utils/echarts';
+  import tooltipLoop from '../utils/tooltipLoop';
+  import { fitChartSize } from '../utils/chartUtlis';
 
   let myChart;
+  let clearLoop;
   const chartElementRef = ref(null);
 
   const resizeFunc = () => {
-    myChart && myChart.resize();
+    const option = getOption();
+    if (myChart) {
+      myChart.setOption(option);
+      clearLoop();
+      clearLoop = tooltipLoop(myChart, option);
+      myChart.resize();
+    }
   };
 
-  onMounted(() => {
-    myChart = echarts.init(chartElementRef.value);
-    myChart.setOption({
+  const getOption = () => {
+    const value = {
       grid: {
-        // left: 0,
-        // right: 0
+        top: 40,
+        bottom: 40,
+      },
+      tooltip: {
+        show: true,
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        borderWidth: 0,
+        textStyle: {
+          color: '#fff',
+          fontSize: fitChartSize(13),
+        },
       },
       xAxis: {
         type: 'category',
@@ -30,6 +47,7 @@
 
         axisLabel: {
           color: '#fff',
+          fontSize: fitChartSize(12),
         },
       },
       yAxis: {
@@ -39,6 +57,7 @@
         },
         axisLabel: {
           color: '#fff',
+          fontSize: fitChartSize(12),
         },
         splitLine: {
           show: false,
@@ -53,18 +72,27 @@
           },
         },
       ],
-    });
+    };
+    return value;
+  };
+
+  onMounted(() => {
+    myChart = echarts.init(chartElementRef.value);
+    const option = getOption();
+    myChart.setOption(option);
+    clearLoop = tooltipLoop(myChart, option);
 
     window.addEventListener('resize', resizeFunc);
   });
 
   onUnmounted(() => {
     myChart.dispose();
+    clearLoop();
     window.removeEventListener('resize', resizeFunc);
   });
 </script>
 <style lang="less" scoped>
   .device-chart {
-    .px2vh(height, 200);
+    .px2vh(height, 180);
   }
 </style>

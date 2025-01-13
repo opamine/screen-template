@@ -1,8 +1,8 @@
 // Echarts图表字体、间距自适应
-export const fitChartSize = (size, defaultWidth = 1920) => {
-  const clientWidth =
-    window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-  if (!clientWidth) return size;
-  const scale = clientWidth / defaultWidth;
+export const fitChartSize = (size, defaultHeight = 1080) => {
+  const clientHeight =
+    window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  if (!clientHeight) return size;
+  const scale = clientHeight / defaultHeight;
   return Number((size * scale).toFixed(3));
 };
