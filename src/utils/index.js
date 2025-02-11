@@ -12,5 +12,5 @@ export const px2vh = (_px) => {
 };
 
 export const px2font = (_px) => {
-  return (_px * 100.0) / designWidth + 'vw';
+  return (_px * 100.0) / designHeight + 'vh';
 };

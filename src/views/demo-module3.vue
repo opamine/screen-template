@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Indicator title="设备总览">
+    <Indicator title="测试模块3">
       <div ref="chartElementRef" class="device-chart"> </div>
     </Indicator>
   </div>
@@ -28,12 +28,9 @@
 
   const getOption = () => {
     const value = {
-      grid: {
-        top: 40,
-        bottom: 40,
-      },
       tooltip: {
         show: true,
+        trigger: 'item',
         backgroundColor: 'rgba(0, 0, 0, 0.7)',
         borderWidth: 0,
         textStyle: {
@@ -41,35 +38,30 @@
           fontSize: fitChartSize(13),
         },
       },
-      xAxis: {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-
-        axisLabel: {
-          color: '#fff',
-          fontSize: fitChartSize(12),
-        },
-      },
-      yAxis: {
-        type: 'value',
-        axisLine: {
-          show: true,
-        },
-        axisLabel: {
-          color: '#fff',
-          fontSize: fitChartSize(12),
-        },
-        splitLine: {
-          show: false,
-        },
+      legend: {
+        orient: 'vertical',
+        top: 'center',
+        right: 0,
       },
       series: [
         {
-          data: [120, 200, 150, 80, 70, 110, 130],
-          type: 'bar',
+          name: 'status',
+          type: 'pie',
+          radius: ['40%', '60%'],
           itemStyle: {
-            color: '#23B7E5',
+            borderWidth: 0,
           },
+          label: {
+            show: false,
+            position: 'center',
+          },
+          labelLine: {
+            show: false,
+          },
+          data: [
+            { value: 1048, name: 'online', itemStyle: { color: '#23B7E5' } },
+            { value: 735, name: 'offline', itemStyle: { color: '#23B7E533' } },
+          ],
         },
       ],
     };
