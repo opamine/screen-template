@@ -135,7 +135,7 @@
         .header-content-item {
           .px2vh(height, 40);
           .px2vh(line-height, 40);
-          .px2font(15);
+          .px2font(14);
           text-align: center;
           &:nth-of-type(1) {
             width: 20%;
@@ -163,7 +163,7 @@
           display: flex;
           .px2vh(height, 50);
           .px2vh(line-height, 50);
-          .px2font(15);
+          .px2font(13);
           &:nth-of-type(odd) {
             background: linear-gradient(
               90deg,
