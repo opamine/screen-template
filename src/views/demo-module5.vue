@@ -15,7 +15,7 @@
           <SeamlessScroll
             v-if="data.length"
             :list="data"
-            :singleHeight="50"
+            :singleHeight="vheight"
             :hover="true"
             :limitScrollNum="6"
             :singleWaitTime="2000"

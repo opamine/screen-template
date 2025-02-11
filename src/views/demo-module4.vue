@@ -45,6 +45,10 @@
             color: ['rgba(114, 172, 209, 0.2)', 'rgba(114, 172, 209, 0.4)'], // 分割区域的颜色
           },
         },
+        axisName: {
+          color: '#fff',
+          fontSize: fitChartSize(12),
+        },
         axisLine: {
           lineStyle: {
             color: 'white', // 坐标轴线的颜色
