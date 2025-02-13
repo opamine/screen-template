@@ -11,7 +11,7 @@
             <div class="header-content-item">公司名称</div>
           </div>
         </div>
-        <div class="table-body" :style="{'--table-row-height': tableRowHeight}">
+        <div class="table-body">
           <SeamlessScroll
             v-if="data.length"
             :list="data"
@@ -130,6 +130,11 @@
   });
 </script>
 <style scoped lang="less">
+  @tableRowHeight: v-bind(tableRowHeight);
+  :export {
+    tableRowHeight: @tableRowHeight;
+  }
+
   .container {
     .cus-table-header {
       .header-content {
@@ -142,7 +147,7 @@
         .header-content-item {
           .px2vh(height, 40);
           .px2vh(line-height, 40);
-          .px2font(14);
+          .px2font(13);
           text-align: center;
           &:nth-of-type(1) {
             width: 20%;
@@ -170,7 +175,7 @@
           display: flex;
           .px2vh(height, 40);
           .px2vh(line-height, 40);
-          .px2font(13);
+          .px2font(12);
           &:nth-of-type(odd) {
             background: linear-gradient(
               90deg,
