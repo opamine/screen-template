@@ -39,17 +39,17 @@
   </div>
 </template>
 <script setup>
+  import { ref, onMounted, onUnmounted } from 'vue';
   import Indicator from '../components/Indicator/index.vue';
   import SeamlessScroll from '../components/seamless-scroll/index.vue';
-  import { ref, onMounted, onUnmounted } from 'vue';
 
-  const vheight = ref((50 / 1080) * (window.innerHeight || document.documentElement.clientHeight));
+  const vheight = ref((40 / 1080) * (window.innerHeight || document.documentElement.clientHeight));
 
   const data = ref([]);
 
   const resizeFunc = () => {
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    vheight.value = (50 / 1080) * viewportHeight;
+    vheight.value = (40 / 1080) * viewportHeight;
   };
 
   const getData = () => {
@@ -156,13 +156,13 @@
       }
     }
     .table-body {
-      .px2vh(height, 250);
+      .px2vh(height, 240);
       overflow: hidden;
       .scroll-list {
         .scroll-list-item {
           display: flex;
-          .px2vh(height, 50);
-          .px2vh(line-height, 50);
+          .px2vh(height, 40);
+          .px2vh(line-height, 40);
           .px2font(13);
           &:nth-of-type(odd) {
             background: linear-gradient(
