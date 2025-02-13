@@ -130,7 +130,7 @@
   });
 </script>
 <style scoped lang="less">
-  @tableRowHeight: v-bind(tableRowHeight);
+  @tableRowHeight: 40;
 
   .container {
     .cus-table-header {
@@ -170,8 +170,8 @@
       .scroll-list {
         .scroll-list-item {
           display: flex;
-          .px2vh(height, 40);
-          .px2vh(line-height, 40);
+          .px2vh(height, @tableRowHeight);
+          .px2vh(line-height, @tableRowHeight);
           .px2font(12);
           &:nth-of-type(odd) {
             background: linear-gradient(
