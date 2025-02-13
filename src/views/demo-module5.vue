@@ -11,7 +11,7 @@
             <div class="header-content-item">公司名称</div>
           </div>
         </div>
-        <div class="table-body">
+        <div class="table-body" :style="{'--table-row-height': tableRowHeight}">
           <SeamlessScroll
             v-if="data.length"
             :list="data"
@@ -42,14 +42,21 @@
   import { ref, onMounted, onUnmounted } from 'vue';
   import Indicator from '../components/Indicator/index.vue';
   import SeamlessScroll from '../components/seamless-scroll/index.vue';
+  import { designHeight } from '../utils/index.js';
 
-  const vheight = ref((40 / 1080) * (window.innerHeight || document.documentElement.clientHeight));
+  // 设计稿滚动表格的单行高度
+  const tableRowHeight = 40;
+
+  // 计算后的实际滚动表格的单行高度
+  const vheight = ref(
+    (tableRowHeight / designHeight) * (window.innerHeight || document.documentElement.clientHeight)
+  );
 
   const data = ref([]);
 
   const resizeFunc = () => {
     const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-    vheight.value = (40 / 1080) * viewportHeight;
+    vheight.value = (tableRowHeight / designHeight) * viewportHeight;
   };
 
   const getData = () => {

@@ -1,6 +1,6 @@
 // 定义设计稿的宽高
-const designWidth = 1920;
-const designHeight = 1080;
+export const designWidth = 1920;
+export const designHeight = 1080;
 
 // px 转 vw
 export const px2vw = (_px) => {
