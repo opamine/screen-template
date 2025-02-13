@@ -131,9 +131,6 @@
 </script>
 <style scoped lang="less">
   @tableRowHeight: v-bind(tableRowHeight);
-  :export {
-    tableRowHeight: @tableRowHeight;
-  }
 
   .container {
     .cus-table-header {
